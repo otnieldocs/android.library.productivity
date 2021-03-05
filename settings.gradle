@@ -1,2 +1,3 @@
+include ':productivity'
 include ':app'
 rootProject.name = "android.library.productivity"
