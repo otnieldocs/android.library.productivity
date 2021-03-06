@@ -81,7 +81,7 @@ class TimeExtensionTest {
     }
 
     @Test
-    fun `Calculate remaining minutes from 08_30_00 to 14_00_00 in date`() {
+    fun `Calculate remaining minutes from 08_30_00 to 09_00_00 in date`() {
         val from = Calendar.getInstance().apply {
             set(2021, 2, 3, 8, 30, 0)
         }.time
@@ -96,7 +96,7 @@ class TimeExtensionTest {
     }
 
     @Test
-    fun `Calculate remaining time from 08_30_00 to 14_00_00 in date`() {
+    fun `Calculate remaining time from 08_30_00 to 09_00_00 in date`() {
         val from = Calendar.getInstance().apply {
             set(2021, 2, 3, 8, 30, 0)
         }.time
