@@ -30,4 +30,16 @@ class DateFormatterInstrumentedTest {
 
         Assert.assertEquals(expected, actual, 1000.0)
     }
+
+    @Test
+    fun testTimeZoneGmtLocaleConversion() {
+        val timeZone = TimeZone.getTimeZone(TIME_ZONE_GMT)
+        val dateString = "2021-03-05T8:00:00Z"
+        val actual = DateFormatter.parseISO8601(dateString, Locale.US, timeZone)?.time.orZero().toDouble()
+        val expected = Calendar.getInstance().apply {
+            set(2021, 2, 5, 15, 0, 0)
+        }.time.time.toDouble()
+
+        Assert.assertEquals(expected, actual, 1000.0)
+    }
 }
