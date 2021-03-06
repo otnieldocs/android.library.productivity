@@ -1,5 +1,7 @@
 package com.otnieldocs.productivity.formatters
 
+import com.otnieldocs.productivity.extensions.orBeginning
+import com.otnieldocs.productivity.formatters.DateConstant.TIME_ZONE_GMT
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -61,6 +63,18 @@ object DateFormatter {
                 timeZone
             ).parse(dateString)
         }
+    }
+
+    @Throws(ParseException::class)
+    fun parseTo(dateString: String, pattern: String): String {
+        val date = parseISO8601(dateString, TimeZone.getTimeZone(TIME_ZONE_GMT))
+        return formatter(pattern, Locale.getDefault()).format(date.orBeginning())
+    }
+
+    @Throws(ParseException::class)
+    fun parseTo(dateString: String, timeZone: TimeZone, pattern: String): String {
+        val date = parseISO8601(dateString, timeZone)
+        return formatter(pattern, Locale.getDefault()).format(date.orBeginning())
     }
 }
 

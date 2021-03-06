@@ -58,7 +58,7 @@ class DateFormatterTest {
     }
 
     @Test
-    fun `test format RFC_3339_V1 type 1 with GMT time zone, return hour +7`() {
+    fun `test format RFC_3339_V1 type 1 relative in GMT time zone, return hour +7`() {
         val timeZone = TimeZone.getTimeZone(TIME_ZONE_GMT)
         val dateString = "2021-03-05T8:00:00Z"
         val actual = DateFormatter.parseISO8601(dateString, timeZone)?.time.orZero().toDouble()
@@ -70,7 +70,7 @@ class DateFormatterTest {
     }
 
     @Test
-    fun `test format RFC_3339_V1 type 1 with GMT time zone and Locale_US, return hour +7`() {
+    fun `test format RFC_3339_V1 type 1 relative in GMT time zone and Locale_US, return hour +7`() {
         val timeZone = TimeZone.getTimeZone(TIME_ZONE_GMT)
         val dateString = "2021-03-05T8:00:00Z"
         val actual = DateFormatter.parseISO8601(dateString, Locale.US, timeZone)?.time.orZero().toDouble()
@@ -79,5 +79,24 @@ class DateFormatterTest {
         }.time.time.toDouble()
 
         Assert.assertEquals(expected, actual, 1000.0)
+    }
+
+    @Test
+    fun `test parse RFC_3339 to dd MMM HH_mm, return string with the same pattern`() {
+        val dateString = "2021-03-05T8:00:00Z"
+        val actual = DateFormatter.parseTo(dateString, "dd MMM HH:mm")
+        val expected = "05 Mar 08:00"
+
+        Assert.assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `test parse RFC_3339 to dd MMM HH_mm relative with GMT, return string with the same pattern`() {
+        val dateString = "2021-03-05T8:00:00Z"
+        val timeZone = TimeZone.getTimeZone(TIME_ZONE_GMT)
+        val actual = DateFormatter.parseTo(dateString, timeZone, "dd MMM HH:mm")
+        val expected = "05 Mar 13:00"
+
+        Assert.assertEquals(expected, actual)
     }
 }

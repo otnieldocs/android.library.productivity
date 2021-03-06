@@ -1,6 +1,7 @@
 package com.otnieldocs.productivity.extensions
 
 import java.lang.NullPointerException
+import java.util.*
 
 // Int extension
 fun Int?.orZero(): Int = this ?: 0
@@ -50,4 +51,7 @@ fun Double?.biggerThan(value: Int) =
 
 // Boolean extension
 fun Boolean?.orFalse() = this ?: false
+
+// Date extension
+fun Date?.orBeginning() = this ?: Date(0)
 

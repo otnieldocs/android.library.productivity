@@ -6,6 +6,7 @@ import com.otnieldocs.productivity.extensions.orZero
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import java.util.*
 
 class CommonDataExtensionTest {
     @Before
@@ -185,5 +186,27 @@ class CommonDataExtensionTest {
         } catch (e: NullPointerException) {
             Assert.assertTrue(false)
         }
+    }
+
+    // Boolean
+
+    @Test
+    fun `Set the Boolean to null, return false`() {
+        val value: Boolean? = null
+
+        try {
+            Assert.assertFalse(value.orFalse())
+        } catch (e: NullPointerException) {
+            Assert.assertTrue(false)
+        }
+    }
+
+    // Date
+
+    @Test
+    fun `Set the date to null, return Date(0)`() {
+        val value: Date? = null
+
+        Assert.assertEquals(Date(0), value.orBeginning())
     }
 }
