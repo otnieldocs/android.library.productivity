@@ -1,8 +1,8 @@
-package com.otnieldocs.productivity
+package com.otnieldocs.productivity.extensions
 
-import com.otnieldocs.productivity.common.biggerThan
-import com.otnieldocs.productivity.common.lessThan
-import com.otnieldocs.productivity.common.orZero
+import com.otnieldocs.productivity.extensions.biggerThan
+import com.otnieldocs.productivity.extensions.lessThan
+import com.otnieldocs.productivity.extensions.orZero
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

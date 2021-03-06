@@ -2,9 +2,9 @@ package com.otnieldocs.productivity
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.otnieldocs.productivity.date.DateConstant.TIME_ZONE_GMT
-import com.otnieldocs.productivity.common.orZero
-import com.otnieldocs.productivity.date.DateFormatter
+import com.otnieldocs.productivity.formatters.DateConstant.TIME_ZONE_GMT
+import com.otnieldocs.productivity.extensions.orZero
+import com.otnieldocs.productivity.formatters.DateFormatter
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

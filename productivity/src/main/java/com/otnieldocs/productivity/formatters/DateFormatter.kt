@@ -1,4 +1,4 @@
-package com.otnieldocs.productivity.date
+package com.otnieldocs.productivity.formatters
 
 import java.text.ParseException
 import java.text.SimpleDateFormat

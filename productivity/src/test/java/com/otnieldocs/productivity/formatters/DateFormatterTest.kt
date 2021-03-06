@@ -1,8 +1,7 @@
-package com.otnieldocs.productivity
+package com.otnieldocs.productivity.formatters
 
-import com.otnieldocs.productivity.date.DateConstant.TIME_ZONE_GMT
-import com.otnieldocs.productivity.common.orZero
-import com.otnieldocs.productivity.date.DateFormatter
+import com.otnieldocs.productivity.formatters.DateConstant.TIME_ZONE_GMT
+import com.otnieldocs.productivity.extensions.orZero
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
