@@ -51,6 +51,22 @@ fun Date.remaining(offset: Long): Diff {
     }
 }
 
+fun Date.remaining(offset: Date): Diff {
+    val diff = diffMillis(offset.time)
+
+    return when {
+        diff / SECOND_TO_MILLIS < 1 -> Diff(diff.toDouble(), DIFF_IN_SECOND)
+
+        diff / MINUTE_TO_MILLIS < 1 -> Diff(diff.toDouble(), DIFF_IN_MINUTE)
+
+        diff / HOUR_TO_MINUTE < 1 -> Diff(diff.toDouble(), DIFF_IN_HOUR)
+
+        diff / DAY_TO_MILLIS < 1 -> Diff(diff.toDouble(), DIFF_IN_DAY)
+
+        else -> Diff(diff.toDouble(), DIFF_IN_MILLIS)
+    }
+}
+
 const val DIFF_IN_MILLIS = 0
 const val DIFF_IN_SECOND = 1
 const val DIFF_IN_MINUTE = 2

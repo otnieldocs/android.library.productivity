@@ -96,7 +96,7 @@ class TimeExtensionTest {
     }
 
     @Test
-    fun `Calculate remaining time from 08_30_00 to 09_00_00 in date`() {
+    fun `Calculate remaining time from 08_30_00 to 09_00_00 in millis`() {
         val from = Calendar.getInstance().apply {
             set(2021, 2, 3, 8, 30, 0)
         }.time
@@ -106,6 +106,23 @@ class TimeExtensionTest {
         }.time
 
         val actual = to.remaining(from.time)
+        val expectedDiff = 30.0
+        val expectedDiffType = DIFF_IN_MINUTE
+        Assert.assertEquals(expectedDiff, actual.diff, 0.05)
+        Assert.assertEquals(expectedDiffType, actual.type)
+    }
+
+    @Test
+    fun `Calculate remaining time from 08_30_00 to 09_00_00 in date`() {
+        val from = Calendar.getInstance().apply {
+            set(2021, 2, 3, 8, 30, 0)
+        }.time
+
+        val to = Calendar.getInstance().apply {
+            set(2021, 2, 3, 9, 0, 0)
+        }.time
+
+        val actual = to.remaining(from)
         val expectedDiff = 30.0
         val expectedDiffType = DIFF_IN_MINUTE
         Assert.assertEquals(expectedDiff, actual.diff, 0.05)
