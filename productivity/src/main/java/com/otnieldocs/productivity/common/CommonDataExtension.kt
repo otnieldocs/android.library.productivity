@@ -1,4 +1,4 @@
-package com.otnieldocs.productivity
+package com.otnieldocs.productivity.common
 
 import java.lang.NullPointerException
 
